@@ -107,17 +107,16 @@ public class Calculadora extends AppCompatActivity {
         mas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!banderasigno) {
-                    int length = cajatexto.getText().toString().length();
-                    String a = cajatexto.getText().toString().substring(length - 1);
-                    if (a.equals("-") || a.equals("*") || a.equals("/")) {
-                        cajatexto.setText(cajatexto.getText().toString().substring(0, length - 1) + "+");
-                        banderasigno = true;
-                    }
-                    cajatexto.append("+");
-                    banderasigno = true;
-                    banderapunto = false;
+                int length = cajatexto.getText().toString().length();
+                String a=cajatexto.getText().toString().substring(length-1);
+                if(a.equals("-") || a.equals("*") || a.equals("/")){
+                    cajatexto.setText(cajatexto.getText().toString().substring(0,length-1)+"+");
+                    banderasigno=true;
                 }
+                if(!banderasigno){cajatexto.append("+");
+                    banderasigno=true;
+                }
+                banderapunto=false;
             }
         });
         menos.setOnClickListener(new View.OnClickListener() {
